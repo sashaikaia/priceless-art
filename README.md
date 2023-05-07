@@ -6,7 +6,7 @@ This site was built as my final project for CS50 at Harvard Extension School in 
 ## Getting Started
 
 ### Prerequisites
-• Node.js v19.8.1 \
+• Node.js v16.13.2 or higher \
 Ensure that you have node installed by running:
 ```bash
 node -v
@@ -36,14 +36,14 @@ Each time you visit or refresh the home page, you will be greeted with a new pro
 
 Click on "Gallery" to view the gallery, which hosts the permanent collection as stored in the art.db database. \
 
-Click on "About" to read a little background about the project. \
+Click on "About" to read a little background about the project.
 
 ### Built With
 JavaScript, HTML, CSS \
 Node.js \
 Express \
 EJS \
-p5.js \
+p5.js
 
 ### Roadmap
 The next planned steps for this project are:
@@ -55,7 +55,7 @@ Other potential improvements and additions to the app could include: \
 • Adding sliders to the Home Page to give users some control over the art generator's parameters. \
 • Give users the ability to "sign" art with their name when submitting it to the gallery. \
 • Random title generation upon submission. \
-• Dedicated viewing page for each artwork. \
+• Dedicated viewing page for each artwork.
 
 ### Contributing
 Pull requests are welcome. For major changes, please open an issue first
