@@ -32,9 +32,9 @@ npm run dev
 You should now be able to access the app in your web browser at http://127.0.0.1:3000/ or localhost:3000.
 
 ### Usage
-Each time you visit or refresh the home page, you will be greeted with a new procedurally generated digital artwork. If you like it, you can submit it to the permanent collection with the "Submit" button, which submits the currently displayed art to the Gallery database. You can generate a new artwork with the "Refresh" button or by reloading the page, but be careful! If you don't submit the current artwork you'll never be able to see it again. \
+Each time you visit or refresh the home page, you will be greeted with a new procedurally generated digital artwork. If you like it, you can submit it to the permanent collection with the "Submit" button, which submits the currently displayed art to the Gallery database. You can generate a new artwork with the "Refresh" button or by reloading the page, but be careful! If you don't submit the current artwork you'll never be able to see it again.
 
-Click on "Gallery" to view the gallery, which hosts the permanent collection as stored in the art.db database. \
+Click on "Gallery" to view the gallery, which hosts the permanent collection as stored in the art.db database.
 
 Click on "About" to read a little background about the project.
 
@@ -49,7 +49,7 @@ p5.js
 The next planned steps for this project are:
 • Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection. \
 • Deploy the app using Render http://render.com \
-• Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database. \
+• Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
 
 Other potential improvements and additions to the app could include: \
 • Adding sliders to the Home Page to give users some control over the art generator's parameters. \
