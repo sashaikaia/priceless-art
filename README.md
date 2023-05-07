@@ -1,19 +1,18 @@
-## Priceless Art
+# Priceless Art
 This is Priceless Art, a procedural art generator and gallery. Each time you load the home page, you will be presented with a unique digital painting created by our algorithm. If you like it, you can submit it to the gallery to add it to our permanent collection. Browse the gallery to see artwork saved by other users.
 
 This site was built as my final project for CS50 at Harvard Extension School in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as text in a SQLite3 database, and rendered in the client web browser by a p5.js sketch.
 
-## Getting Started
+### Getting Started
 
 ## Prerequisites
-Node.js v19.8.1
-
+• Node.js v19.8.1
 Ensure that you have node installed by running:
 ```bash
 node -v
 ```
 
-NPM v9.6.6
+• NPM v9.6.6
 Ensure that you have node installed by running:
 ```bash
 npm -v
@@ -30,10 +29,10 @@ npm run dev
 ```
 
 ## Running the App
-You should now be able to access the app in your browser at http://127.0.0.1:3000/ or localhost:3000 - you can also navigate to this in VSCode by going to Ports and command-clicking on port 3000 in the list.
+You should now be able to access the app in your web browser at http://127.0.0.1:3000/ or localhost:3000.
 
 ## Usage
-Each time you visit or refresh the home page, you will be greeted with a new procedurally generated digital artwork. If you like it, you can submit it to the permanent collection with the "Submit" button, which submits the currently displayed art to the Gallery database. You can generate a new artwork with the "Refresh" button or by reloading the page, but be careful! If you don't submit the current artwork you'll never be able to see it again!
+Each time you visit or refresh the home page, you will be greeted with a new procedurally generated digital artwork. If you like it, you can submit it to the permanent collection with the "Submit" button, which submits the currently displayed art to the Gallery database. You can generate a new artwork with the "Refresh" button or by reloading the page, but be careful! If you don't submit the current artwork you'll never be able to see it again.
 
 Click on "Gallery" to view the gallery, which hosts the permanent collection as stored in the art.db database.
 
@@ -46,22 +45,24 @@ Express
 EJS
 p5.js
 
-## History, Next Steps, Contributing
-This is version 1.0.0.
-
+## Roadmap
 The next planned steps for this project are:
 • Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.
-• Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
-• Upload the source code to a repository on GitHub.
 • Deploy the app using Render http://render.com
+• Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
 
-Possible improvements and additions to the app could include:
+Other potential improvements and additions to the app could include:
 • Adding sliders to the Home Page to give users some control over the art generator's parameters.
 • Give users the ability to "sign" art with their name when submitting it to the gallery.
 • Random title generation upon submission.
 • Dedicated viewing page for each artwork.
 
-If you would like to help with this project, look for it on github soon at https://github.com/sashaikaia.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+## Acknowledgement
+Special thanks to Pablo Picasso, Willem de Kooning, and Wassily Kandinsky.
 
 ## Authors
 Developed by Sasha Mandel, sashamandel@gmail.com
