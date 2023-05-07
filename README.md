@@ -13,21 +13,15 @@ Ensure that you have node installed by running:
 node -v
 ```
 
+NPM v9.6.6
+Ensure that you have node installed by running:
+```bash
+npm -v
+```
 ## Installation
-Download art.zip to your hard disk or codespace. Unzip the project with the terminal command:
+Clone this GitHub repository. In your Terminal, navigate to the directory <./priceless-art> and set up node modules and dependencies by running:
 ```bash
-unzip project.zip
-```
-Navigate to the folder 'art' with:
-```bash
-cd ./art
-```
-Install the dependencies with:
-```bash
-npm install express
-npm install nodemon
-npm install ejs
-npm install sqlite3
+npm install
 ```
 
 Run the Node.js server in dev mode with:
