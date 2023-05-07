@@ -6,13 +6,13 @@ This site was built as my final project for CS50 at Harvard Extension School in 
 ### Getting Started
 
 ## Prerequisites
-• Node.js v19.8.1
+Node.js v19.8.1
 Ensure that you have node installed by running:
 ```bash
 node -v
 ```
 
-• NPM v9.6.6
+NPM v9.6.6
 Ensure that you have node installed by running:
 ```bash
 npm -v
@@ -47,15 +47,15 @@ p5.js
 
 ## Roadmap
 The next planned steps for this project are:
-• Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.
-• Deploy the app using Render http://render.com
-• Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
+Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.
+Deploy the app using Render http://render.com
+Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
 
 Other potential improvements and additions to the app could include:
-• Adding sliders to the Home Page to give users some control over the art generator's parameters.
-• Give users the ability to "sign" art with their name when submitting it to the gallery.
-• Random title generation upon submission.
-• Dedicated viewing page for each artwork.
+Adding sliders to the Home Page to give users some control over the art generator's parameters.
+Give users the ability to "sign" art with their name when submitting it to the gallery.
+Random title generation upon submission.
+Dedicated viewing page for each artwork.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first
