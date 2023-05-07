@@ -1,5 +1,5 @@
 var sketch = function(p) {
-  var newArtObject = artObject;
+  var newArtObject = myArtObject;
 
   p.setup = function() {
     let newPainting = new painting(

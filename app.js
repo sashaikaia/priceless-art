@@ -25,8 +25,8 @@ app.set('view engine', 'ejs');
 
 app.post('/submit', (req, res) => {
     console.log('post request from submit button on index page');
-    console.log(artObject);
-    db.run('INSERT INTO gallery(object) VALUES(?)', JSON.stringify(artObject));
+    // console.log(myArtObject);
+    db.run('INSERT INTO gallery(object) VALUES(?)', req.body.myArtObject);
     res.redirect('/gallery');
 })
 
