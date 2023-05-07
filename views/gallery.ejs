@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/header') %>
+    <%- include('partials/nav') %>
+
+    <body>
+        <div class="text">
+            <p>This gallery is our permanent collection of priceless art.</p>
+            <p>Return <a href="/">home</a> to generate a new painting. </p>
+        </div>
+        <div id = "canvas-container">
+            <% gallery.forEach((object) => { %>
+                <script>
+                    var artObject = <%- object %>;
+                    var myp5 = new p5(sketch);
+                </script>
+            <% }) %>
+        </div>
+    </body>
+
+    <%- include('partials/footer') %>
+</html>

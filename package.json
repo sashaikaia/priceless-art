@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "sqlite3": "^5.1.6"
+  },
+  "name": "art",
+  "version": "1.0.0",
+  "description": "generative art gallery",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sasha Mandel",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.39.0"
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/header') %>
+    <%- include('partials/nav') %>
+    <body>
+        <div class="text">
+            <!-- <p>Each time you visit this page, you will be greeted with a unique digital painting created just for you. You can add it to the permanent gallery with the <strong>"Submit"</strong> button below, or generate a new painting with the <strong>"Refresh"</strong> button (or by refreshing the page). </p> -->
+            <p>This is a one-of-a-kind digital painting generated just for you:</p>
+        </div>
+        <!-- <p id="text" name="text">artObject = <%= artObject %></p> -->
+        <script src="sketch.js"></script>
+            <div id = "canvas-container">
+                <script>
+                    var artObject = <%- artObject %>;
+                    var myp5 = new p5(sketch);
+                </script>
+            </div>
+    <form form id="index" action="/" method="POST">
+        <input class="button" type="submit" name="refresh" value="Refresh" formaction="refresh">
+        <input class="button" type="submit" name="submit" value="Submit" formaction="submit">
+    </form>
+    <div class ="text">
+        <p>Add it to the permanent collection with the <strong>Submit</strong> button or generate a new painting with the <strong>Refresh</strong> button (or by refreshing the page).</p>
+    </div>
+    </body>
+
+    <%- include('partials/footer') %>
+</html>

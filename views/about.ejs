@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/header') %>
+    <%- include('partials/nav') %>
+    <body>
+        <div class="text">
+            <p>Welcome to <strong>Priceless Art</strong>, a procedural art generator and gallery. A new painting is generated every time a user visits the <a href="/">home page</a>. Submit this painting to save it to the permanent collection.</p>
+            <p>Visit the <a href="/gallery">gallery</a> to see all paintings in the collection.</p>
+            <p>This site was built as my final project for <a href="https://cs50.harvard.edu/">CS50</a> at <a href="https://extension.harvard.edu/">Harvard Extension School</a> in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as text in a SQLite3 database, and rendered in the client's web browser by a p5.js sketch.</p>
+            <p>If you love it, hate it, or just want to talk, you can send me an <a href="mailto:sashamandel@gmail.com">email</a>.</p>
+            <p>Thanks for visiting!</p>
+        </div>
+    </body>
+
+    <%- include('partials/footer') %>
+</html>

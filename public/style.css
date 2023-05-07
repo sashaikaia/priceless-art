@@ -1,0 +1,69 @@
+body {
+   background-color: pink;
+   font-family: 'Libre Baskerville', serif;
+   font-size: 1.4em;
+   padding: 1em;
+   text-align:center;
+   max-width: 1280px;
+   margin: auto;
+}
+
+p {
+   font-size: .8em;
+   line-height: 1.6;
+   font-weight: 400;
+}
+
+h2 {
+   font-family: 'Dancing Script', cursive;
+   font-size: 2em;
+}
+
+canvas {
+   background: #cdcdcd;
+   position:relative;
+   width:50%;
+   height:50%;
+   margin: 0 auto 1em auto;
+   padding: 5px;
+   border: 5px inset black;
+}
+
+.text {
+   max-width: 680px;
+   margin: auto;
+   padding-left: 5%;
+   padding-right: 5%;
+}
+
+a:link {
+   color: darkmagenta;
+}
+
+a:visited {
+   color: midnightblue;
+}
+
+a:hover {
+   color: deeppink;
+}
+
+a:active {
+   color: cornsilk;
+}
+
+.button {
+   font-family: monospace;
+   background-color: 'cornsilk';
+   border: none;
+   color: darkmagenta;
+   padding: 7px 14px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: .9em;
+   border-radius: 10px;
+   cursor:pointer;
+   margin-left: 7px;
+   margin-right: 7px;
+ }
