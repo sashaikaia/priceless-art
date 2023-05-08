@@ -9,11 +9,12 @@
             <p>Return <a href="/">home</a> to generate a new painting. </p>
         </div>
         <div id = "canvas-container">
-            <% gallery.forEach((object) => { %>
-                <script>
-                    var myArtObject = <%- object %>;
-                    var myp5 = new p5(sketch);
-                </script>
+            <% gallery.forEach((obj) => {
+                str = JSON.stringify(obj, null, 4);%>
+            <script>
+                var myArtObject = <%- str %>;
+                var myp5 = new p5(sketch);
+            </script>
             <% }) %>
         </div>
     </body>

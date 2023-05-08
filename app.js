@@ -4,9 +4,14 @@ const express = require('express');
 const app = express();
 
 // require sqlite3 and use the database
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./art.db');
+// const sqlite3 = require('sqlite3').verbose();
+// const db = new sqlite3.Database('./art.db');
 
+// setup MongoDB client and database
+const { MongoClient } = require("mongodb");
+const uri = "mongodb+srv://sashamandel:X1F0kMt823yhsvmt@cluster97438.uvhdein.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri);
+const db = client.db('art');
 
 const port = 3000;
 
@@ -25,8 +30,7 @@ app.set('view engine', 'ejs');
 
 app.post('/submit', (req, res) => {
     console.log('post request from submit button on index page');
-    // console.log(myArtObject);
-    db.run('INSERT INTO gallery(object) VALUES(?)', req.body.myArtObject);
+    db.collection('gallery').insertOne(JSON.parse(req.body.myArtObject));
     res.redirect('/gallery');
 })
 
@@ -54,19 +58,35 @@ app.get('/', (req, res) => {
 app.get('/gallery', (req, res) => {
     console.log('get request for gallery page');
     // res.render('gallery', {title: 'priceless art gallery'})
-    let gallery = [];
-    db.each('SELECT id, object FROM gallery', (err, row) => {
-        if (err) {
-            console.log(err);
+    // let gallery = db.collection('gallery').findOne({});
+    // console.log(gallery);
+    // console.log(db.collection.find({}));
+    // db.find('SELECT id, object FROM gallery', (err, row) => {
+    //     if (err) {
+    //         console.log(err);
+    //     }
+    //     else {
+    //         console.log(row);
+    //         gallery.unshift(row.object);
+    //     }
+    // }, (err) => {
+    //     // render the gallery page
+    //     res.render('gallery', {title: 'Gallery', gallery: gallery})
+    // })
+
+    async function run() {
+        try {
+          let gallery = await db.collection('gallery').find({}).sort({ date: -1 }).toArray();
+        //   console.log(JSON.stringify(gallery));
+          res.render('gallery', {title: 'Gallery', gallery: gallery})
+        } finally {
+          // Ensures that the client will close when you finish/error
+        //   await client.close();
         }
-        else {
-            console.log(row);
-            gallery.unshift(row.object);
-        }
-    }, (err) => {
-        // render the gallery page
-        res.render('gallery', {title: 'Gallery', gallery: gallery})
-    })
+      }
+      run().catch(console.dir);
+      
+      
 
 })
 
@@ -92,6 +112,7 @@ function generateArtObject() {
     artObject.height = getRandomInt(200, 300);
     artObject.background = getRandomColor(0, 255);
     artObject.shapes = [];
+    artObject.date = new Date();
 
     // determine the number of shapes in this artObject,
     let numOfShapes = getRandomInt(1, 5);
