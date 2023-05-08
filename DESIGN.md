@@ -30,7 +30,7 @@ Now, I continued to develop the procedural engine to create more interesting and
 
 Here I faced another challenge: when I prototyped a single shape it was a "functional" program, but in order to produce multiple shapes in a single painting (and do it from the server or the database) I needed to separate the logic of producing these properties/parameters and actually painting the shapes. I decided to refactor the prototype code into an object-oriented paradigm utilizing JavaScript "classes" to create flexible, re-usable protoypes for shapes and paintings, and I moved the code for generating an "artObject" into the main Node app. I did have some difficulty getting the p5 canvases to sit correctly in divs or respond to CSS styling, which is something I would like to work on in future development.
 
-## Database - SQLite3, MongoDB?
-I chose SQlite3 for the database simply because we used it in class, however I am in the process of successfully migrating the site's database to a MongoDB Atlas cloud database. This will be a good fit for a live version of the site because it doesn't require me to maintain a server, and because MongoDB stores documents in BSON format which can be translated directly to a JSON object. In contrast, my SQLite3 database simply stores the object as text, which can be parsed back into JSON when it is retrieved. I would also like to implement a lazy-loading pattern so the Gallery page can continue to function performatively if there are a greater number of entries in the database. Unfortunately, it is unlikely that these changes will be completed before the project is due.
+## Database - MongoDB
+This version of the app runs on a MongoDB cloud server. 
 
 [![Woman in Blue](https://ids.lib.harvard.edu/ids/view/19994822?width=256&height=256"(https://harvardartmuseums.org/collections/object/227565)]
