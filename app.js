@@ -2,6 +2,8 @@
 // install express before using with "npm install express"
 const express = require('express');
 const app = express();
+// const PORT = 3000;
+const PORT = process.env.PORT || 3030;
 
 // require sqlite3 and use the database
 // const sqlite3 = require('sqlite3').verbose();
@@ -13,7 +15,6 @@ const uri = "mongodb+srv://sashamandel:X1F0kMt823yhsvmt@cluster97438.uvhdein.mon
 const client = new MongoClient(uri);
 const db = client.db('art');
 
-const port = 3000;
 
 // Allow express to read requests in JSON format
 app.use(express.urlencoded({extended: true}));
@@ -98,7 +99,7 @@ app.get('/about', (req, res) => {
 })
 
 
-app.listen(port, () => console.log('Listening on port 3000'));
+app.listen(PORT, () => console.log('Listening on port ' + PORT));
 
 // // 404 page
 app.use(function(req,res){
