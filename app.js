@@ -76,7 +76,7 @@ app.get('/gallery', (req, res) => {
 
     async function run() {
         try {
-          let gallery = await db.collection('gallery').find({}).toArray();
+          let gallery = await db.collection('gallery').find({}).sort({ date: -1 }).toArray();
         //   console.log(JSON.stringify(gallery));
           res.render('gallery', {title: 'Gallery', gallery: gallery})
         } finally {
@@ -112,6 +112,7 @@ function generateArtObject() {
     artObject.height = getRandomInt(200, 300);
     artObject.background = getRandomColor(0, 255);
     artObject.shapes = [];
+    artObject.date = new Date();
 
     // determine the number of shapes in this artObject,
     let numOfShapes = getRandomInt(1, 5);
