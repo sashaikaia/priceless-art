@@ -1,7 +1,7 @@
 # Priceless Art
 This is Priceless Art, a procedural art generator and gallery. Each time you load the home page, you will be presented with a unique digital painting created by our algorithm. If you like it, you can submit it to the gallery to add it to our permanent collection. Browse the gallery to see artwork saved by other users.
 
-This site was built as my final project for CS50 at Harvard Extension School in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as text in a SQLite3 database, and rendered in the client web browser by a p5.js sketch.
+This site was built as my final project for CS50 at Harvard Extension School in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as BSON in a MongoDB Atlas database, and rendered in the client web browser by a p5.js sketch.
 
 ## Getting Started
 
