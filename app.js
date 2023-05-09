@@ -31,8 +31,20 @@ app.set('view engine', 'ejs');
 
 app.post('/submit', (req, res) => {
     console.log('post request from submit button on index page');
-    db.collection('gallery').insertOne(JSON.parse(req.body.myArtObject));
-    res.redirect('/gallery');
+
+    async function submit() {
+        let submitted = await db.collection('gallery').insertOne(JSON.parse(req.body.myArtObject));
+        console.log('submitted...');
+        if (submitted) {
+            console.log('received');
+            res.redirect('/gallery');
+        }
+        }
+        submit().catch(console.dir);
+
+
+    // db.collection('gallery').insertOne(JSON.parse(req.body.myArtObject));
+    // res.redirect('/gallery');
 })
 
 // post route for index page refresh button, redirect
@@ -86,8 +98,6 @@ app.get('/gallery', (req, res) => {
         }
       }
       run().catch(console.dir);
-      
-      
 
 })
 
