@@ -3,7 +3,7 @@
 ## Concept
 This project was inspired by a visit to the the Harvard Art Museums, the art of Pablo Picasso, and is a reaction to the NFT boom of 2021. However, this priceless art is most definitely not an NFT as it is randomly generated on a server, stored in a database, and carry no ownership or exchange value.
 
-[![Untitled (The Cow Jumps Over the Moon)](https://ids.lib.harvard.edu/ids/view/22804292?width=256&height=256"(https://harvardartmuseums.org/collections/object/318663)]
+![Untitled (The Cow Jumps Over the Moon)](https://ids.lib.harvard.edu/ids/view/22804292?width=512&height=512)
 
 I have had an interest in procedural generation and aleatoric art for some time. Some of my early forays into programming included experiments with [Processing](https://processing.org/), a software sketchbook designed for artists, and [Tracery](https://tracery.io/), a simple tool for procedurally generation of text.
 
@@ -31,6 +31,6 @@ Now, I continued to develop the procedural engine to create more interesting and
 Here I faced another challenge: when I prototyped a single shape it was a "functional" program, but in order to produce multiple shapes in a single painting (and do it from the server or the database) I needed to separate the logic of producing these properties/parameters and actually painting the shapes. I decided to refactor the prototype code into an object-oriented paradigm utilizing JavaScript "classes" to create flexible, re-usable protoypes for shapes and paintings, and I moved the code for generating an "artObject" into the main Node app. I did have some difficulty getting the p5 canvases to sit correctly in divs or respond to CSS styling, which is something I would like to work on in future development.
 
 ## Database - MongoDB
-This version of the app runs on a MongoDB cloud server. 
+This version of the app runs on a MongoDB cloud server.
 
-[![Woman in Blue](https://ids.lib.harvard.edu/ids/view/19994822?width=256&height=256"(https://harvardartmuseums.org/collections/object/227565)]
+![Woman in Blue](https://ids.lib.harvard.edu/ids/view/19994822?width=512&height=512)

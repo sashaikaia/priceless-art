@@ -5,13 +5,16 @@ const app = express();
 // const PORT = 3000;
 const PORT = process.env.PORT || 3030;
 
+require('dotenv').config();
+// console.log(process.env);
+
 // require sqlite3 and use the database
 // const sqlite3 = require('sqlite3').verbose();
 // const db = new sqlite3.Database('./art.db');
 
 // setup MongoDB client and database
 const { MongoClient } = require("mongodb");
-const uri = "mongodb+srv://sashamandel:X1F0kMt823yhsvmt@cluster97438.uvhdein.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 const db = client.db('art');
 
@@ -70,22 +73,6 @@ app.get('/', (req, res) => {
 // 'get' route for gallery page
 app.get('/gallery', (req, res) => {
     console.log('get request for gallery page');
-    // res.render('gallery', {title: 'priceless art gallery'})
-    // let gallery = db.collection('gallery').findOne({});
-    // console.log(gallery);
-    // console.log(db.collection.find({}));
-    // db.find('SELECT id, object FROM gallery', (err, row) => {
-    //     if (err) {
-    //         console.log(err);
-    //     }
-    //     else {
-    //         console.log(row);
-    //         gallery.unshift(row.object);
-    //     }
-    // }, (err) => {
-    //     // render the gallery page
-    //     res.render('gallery', {title: 'Gallery', gallery: gallery})
-    // })
 
     async function run() {
         try {
@@ -151,15 +138,15 @@ function generateArtObject() {
         newShape.color = getRandomColor(0, 255);
 
         // randomize complexity aka length of coords
-        let complexity = getRandomInt(2, 5) * 2;
+        let complexity = getRandomInt(2, 7) * 2;
         // push randomized coordinates to the array
         for (let j = 0; j < complexity; j++) {
             let newCoord;
             if (j % 2 == 0) {
-                newCoord = getRandomInt(10, x-10);
+                newCoord = getRandomInt(5, x-5);
                 // console.log("x: " + x);
             } else {
-                newCoord = getRandomInt(10, y-10);
+                newCoord = getRandomInt(5, y-5);
                 // console.log("y: " + y);
             }
             // console.log(newCoord);
