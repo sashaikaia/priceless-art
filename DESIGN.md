@@ -3,7 +3,7 @@
 ## Concept
 This project was inspired by a visit to the the Harvard Art Museums, the art of Pablo Picasso, and is a reaction to the NFT boom of 2021. However, this priceless art is most definitely not an NFT as it is randomly generated on a server, stored in a database, and carry no ownership or exchange value.
 
-[![Untitled (The Cow Jumps Over the Moon)](https://ids.lib.harvard.edu/ids/view/22804292?width=256&height=256"(https://harvardartmuseums.org/collections/object/318663)]
+![Untitled (The Cow Jumps Over the Moon)](https://ids.lib.harvard.edu/ids/view/22804292?width=512&height=512)
 
 I have had an interest in procedural generation and aleatoric art for some time. Some of my early forays into programming included experiments with [Processing](https://processing.org/), a software sketchbook designed for artists, and [Tracery](https://tracery.io/), a simple tool for procedurally generation of text.
 
@@ -33,4 +33,4 @@ Here I faced another challenge: when I prototyped a single shape it was a "funct
 ## Database - SQLite3, MongoDB?
 I chose SQlite3 for the database simply because we used it in class, however I am in the process of successfully migrating the site's database to a MongoDB Atlas cloud database. This will be a good fit for a live version of the site because it doesn't require me to maintain a server, and because MongoDB stores documents in BSON format which can be translated directly to a JSON object. In contrast, my SQLite3 database simply stores the object as text, which can be parsed back into JSON when it is retrieved. I would also like to implement a lazy-loading pattern so the Gallery page can continue to function performatively if there are a greater number of entries in the database. Unfortunately, it is unlikely that these changes will be completed before the project is due.
 
-[![Woman in Blue](https://ids.lib.harvard.edu/ids/view/19994822?width=256&height=256"(https://harvardartmuseums.org/collections/object/227565)]
+![Woman in Blue](https://ids.lib.harvard.edu/ids/view/19994822?width=512&height=512)
