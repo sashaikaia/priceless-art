@@ -31,7 +31,7 @@ npm run dev
 ```
 
 ### Running the App
-You should now be able to access the app in your web browser at http://127.0.0.1:3000/ or localhost:3000.
+You should now be able to access the app in your web browser at http://127.0.0.1:3030/ or localhost:3030.
 
 ### Usage
 Each time you visit or refresh the home page, you will be greeted with a new procedurally generated digital artwork. If you like it, you can submit it to the permanent collection with the "Submit" button, which submits the currently displayed art to the Gallery database. You can generate a new artwork with the "Refresh" button or by reloading the page, but be careful! If you don't submit the current artwork you'll never be able to see it again.
@@ -46,7 +46,7 @@ Node.js \
 Express \
 EJS \
 MongoDB \
-p5.js 
+p5.js
 
 ### Roadmap
 The next planned steps for this project are: \
