@@ -119,8 +119,10 @@ app.use(function(req,res){
 // generate artObject in JSON format with width, height, background, and an array of shapes
 function generateArtObject() {
     artObject = {};
-    artObject.width = getRandomInt(200, 300);
-    artObject.height = getRandomInt(200, 300);
+    let x = getRandomInt(200, 300);
+    artObject.width = x;
+    let y = getRandomInt(200,300);
+    artObject.height = y;
     artObject.background = getRandomColor(0, 255);
     artObject.shapes = [];
     artObject.date = new Date();
@@ -149,14 +151,19 @@ function generateArtObject() {
         newShape.color = getRandomColor(0, 255);
 
         // randomize complexity aka length of coords
-        let complexity = getRandomInt(2, 8) * 2;
+        let complexity = getRandomInt(2, 5) * 2;
         // push randomized coordinates to the array
         for (let j = 0; j < complexity; j++) {
-            if (i % 2 == 0) {
-                newShape.coords.push(getRandomInt(0, artObject.width - 1));
+            let newCoord;
+            if (j % 2 == 0) {
+                newCoord = getRandomInt(10, x-10);
+                // console.log("x: " + x);
             } else {
-                newShape.coords.push(getRandomInt(0, artObject.height - 1));
+                newCoord = getRandomInt(10, y-10);
+                // console.log("y: " + y);
             }
+            // console.log(newCoord);
+            newShape.coords.push(newCoord);
         }
 
         // and push this shape to the artObject
