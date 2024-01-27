@@ -3,6 +3,8 @@ This is Priceless Art, a procedural art generator and gallery. Each time you loa
 
 This site was built as my final project for CS50 at Harvard Extension School in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as text in a SQLite3 database, and rendered in the client web browser by a p5.js sketch.
 
+A live version of this project is available at http://priceless-art.onrender.com (please wait, there may be a delay in loading if the site has not been visited recently)
+
 ## Getting Started
 
 ### Prerequisites
@@ -47,8 +49,8 @@ p5.js
 
 ### Roadmap
 The next planned steps for this project are: \
-~~ Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.~~ complete! \
-~~ Deploy the app using Render http://render.com~~ complete!  \
+~ Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.~ complete! \
+~ Deploy the app using Render http://render.com~ complete!  \
 • Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
 
 Other potential improvements and additions to the app could include: \
