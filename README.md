@@ -47,8 +47,8 @@ p5.js
 
 ### Roadmap
 The next planned steps for this project are: \
-• Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection. \
-• Deploy the app using Render http://render.com \
+~~ Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.~~ complete! \
+~~ Deploy the app using Render http://render.com~~ complete!  \
 • Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
 
 Other potential improvements and additions to the app could include: \
