@@ -1,11 +1,13 @@
 # Priceless Art
 This is Priceless Art, a procedural art generator and gallery. Each time you load the home page, you will be presented with a unique digital painting created by our algorithm. If you like it, you can submit it to the gallery to add it to our permanent collection. Browse the gallery to see artwork saved by other users.
 
-This site was built as my final project for CS50 at Harvard Extension School in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as text in a SQLite3 database, and rendered in the client web browser by a p5.js sketch.
+This site was built as my final project for CS50 at Harvard Extension School in Spring of 2023. It runs on Node.js with the Express framework, using EJS as a templating engine. The paintings are generated as JSON objects on the server, stored as BSON in a MongoDB Atlas database, and rendered in the client web browser by a p5.js sketch.
 
 A live version of this project is available at http://priceless-art.onrender.com (please wait, there may be a delay in loading if the site has not been visited recently)
 
 ## Getting Started
+
+Check out a live build of the app at: https://priceless-art.onrender.com/
 
 ### Prerequisites
 • Node.js v16.13.2 or higher \
@@ -31,7 +33,7 @@ npm run dev
 ```
 
 ### Running the App
-You should now be able to access the app in your web browser at http://127.0.0.1:3000/ or localhost:3000.
+You should now be able to access the app in your web browser at http://127.0.0.1:3030/ or localhost:3030.
 
 ### Usage
 Each time you visit or refresh the home page, you will be greeted with a new procedurally generated digital artwork. If you like it, you can submit it to the permanent collection with the "Submit" button, which submits the currently displayed art to the Gallery database. You can generate a new artwork with the "Refresh" button or by reloading the page, but be careful! If you don't submit the current artwork you'll never be able to see it again.
@@ -45,12 +47,13 @@ JavaScript, HTML, CSS \
 Node.js \
 Express \
 EJS \
+MongoDB \
 p5.js
 
 ### Roadmap
 The next planned steps for this project are: \
-~ Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.~ complete! \
-~ Deploy the app using Render http://render.com~ complete!  \
+~~• Migrate from sqlite3 to a MongoDB cloud database, which can read and write JSON as BSON documents in a collection.~~ \
+~~• Deploy the app using Render http://render.com~~ \
 • Implement lazy-loading with endless scroll on the Gallery page, so the site will continue to function performatively with a larger database.
 
 Other potential improvements and additions to the app could include: \

@@ -29,7 +29,7 @@ class shapeObject {
     this.s.strokeWeight(3);
     if (this.style == "rounded") {
       // interpolate a point between the first and last coords to make the shape smooth
-      let midPoint = [this.coords[0] + this.coords[1] / 2, this.coords[this.coords.length-2] + this.coords[this.coords.length-1] / 2];
+      let midPoint = [(this.coords[0] + this.coords[this.coords.length-2]) / 2, (this.coords[1] + this.coords[this.coords.length-1]) / 2];
       this.s.beginShape();
       // use last point as first control point
       this.s.curveVertex(this.coords[this.coords.length-2], this.coords[this.coords.length-1]);
