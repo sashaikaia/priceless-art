@@ -35,19 +35,27 @@ app.set('view engine', 'ejs');
 app.post('/submit', (req, res) => {
     console.log('post request from submit button on index page');
 
+    // only store paintings that look like ones generateArtObject() makes
+    let artObject;
+    try {
+        artObject = cleanArtObject(JSON.parse(req.body.myArtObject));
+    } catch (err) {
+        artObject = null;
+    }
+    if (!artObject) {
+        console.log('rejected invalid art object');
+        return res.status(400).send('Invalid painting');
+    }
+
     async function submit() {
-        let submitted = await db.collection('gallery').insertOne(JSON.parse(req.body.myArtObject));
+        await db.collection('gallery').insertOne(artObject);
         console.log('submitted...');
-        if (submitted) {
-            console.log('received');
-            res.redirect('/gallery');
-        }
-        }
-        submit().catch(console.dir);
-
-
-    // db.collection('gallery').insertOne(JSON.parse(req.body.myArtObject));
-    // res.redirect('/gallery');
+        res.redirect('/gallery');
+    }
+    submit().catch((err) => {
+        console.dir(err);
+        res.status(500).send('Could not save painting');
+    });
 })
 
 // post route for index page refresh button, redirect
@@ -158,6 +166,55 @@ function generateArtObject() {
     }
 
     return artObject;
+}
+
+// rebuild a submitted artObject from only the fields we expect, or return null if anything is off
+function cleanArtObject(input) {
+    if (!input || !isIntBetween(input.width, 200, 300) || !isIntBetween(input.height, 200, 300)) {
+        return null;
+    }
+    if (!isColor(input.background) || !Array.isArray(input.shapes)) {
+        return null;
+    }
+    if (input.shapes.length < 1 || input.shapes.length > 5) {
+        return null;
+    }
+
+    let shapes = [];
+    for (let shape of input.shapes) {
+        if (!shape || !["rounded", "poly"].includes(shape.style) || !isColor(shape.color)) {
+            return null;
+        }
+        let coords = shape.coords;
+        if (!Array.isArray(coords) || coords.length < 4 || coords.length > 14 || coords.length % 2 != 0) {
+            return null;
+        }
+        // even indexes are x coords, odd indexes are y coords, kept 5px inside the canvas
+        for (let j = 0; j < coords.length; j++) {
+            let max = (j % 2 == 0) ? input.width - 5 : input.height - 5;
+            if (!isIntBetween(coords[j], 5, max)) {
+                return null;
+            }
+        }
+        shapes.push({ style: shape.style, color: shape.color, coords: coords });
+    }
+
+    // set the date here so clients can't pick their place in the gallery
+    return {
+        width: input.width,
+        height: input.height,
+        background: input.background,
+        shapes: shapes,
+        date: new Date()
+    };
+}
+
+function isIntBetween(n, min, max) {
+    return Number.isInteger(n) && n >= min && n <= max;
+}
+
+function isColor(color) {
+    return Array.isArray(color) && color.length == 3 && color.every((c) => isIntBetween(c, 0, 255));
 }
 
 // random generators
