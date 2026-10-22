@@ -92,17 +92,13 @@ app.get('/gallery', (req, res) => {
     console.log('get request for gallery page');
 
     async function run() {
-        try {
-          let gallery = await db.collection('gallery').find({}).sort({ date: -1 }).toArray();
-        //   console.log(JSON.stringify(gallery));
-          res.render('gallery', {title: 'Gallery', gallery: gallery})
-        } finally {
-          // Ensures that the client will close when you finish/error
-        //   await client.close();
-        }
-      }
-      run().catch(console.dir);
-
+        let gallery = await db.collection('gallery').find({}).sort({ date: -1 }).toArray();
+        res.render('gallery', {title: 'Gallery', gallery: gallery})
+    }
+    run().catch((err) => {
+        console.dir(err);
+        res.status(500).send('Could not load the gallery');
+    });
 })
 
 // 'get' route for about page
