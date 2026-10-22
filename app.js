@@ -113,9 +113,9 @@ app.get('/about', (req, res) => {
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));
 
-// // 404 page
+// 404 page
 app.use(function(req,res){
-    res.status(404).render('404');
+    res.status(404).render('404', {title: 'Not Found'});
 });
 
 // generate artObject in JSON format with width, height, background, and an array of shapes
