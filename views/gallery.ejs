@@ -8,15 +8,16 @@
             <p>This gallery is our permanent collection of priceless art.</p>
             <p>Return <a href="/">home</a> to generate a new painting. </p>
         </div>
-        <div id = "canvas-container">
-            <% gallery.forEach((obj) => {
-                str = JSON.stringify(obj, null, 4);%>
-            <script>
-                var myArtObject = <%- str %>;
-                var myp5 = new p5(sketch);
-            </script>
+        <div id="gallery">
+            <% gallery.forEach((obj) => { %>
+            <div class="art" data-art="<%= JSON.stringify(obj) %>"></div>
             <% }) %>
         </div>
+        <script>
+            document.querySelectorAll('.art').forEach((el) => {
+                new p5((p) => sketch(p, JSON.parse(el.dataset.art), el));
+            });
+        </script>
     </body>
 
     <%- include('partials/footer') %>

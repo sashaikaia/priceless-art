@@ -20,13 +20,24 @@ h2 {
 }
 
 canvas {
+   display: block;
+   margin: 0 auto;
    background: #cdcdcd;
-   position:relative;
-   width:50%;
-   height:50%;
-   margin: 0 auto 1em auto;
    padding: 5px;
    border: 5px inset black;
+}
+
+#painting {
+   margin-bottom: 1em;
+}
+
+#gallery {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 1.5em;
+   margin-top: 1em;
 }
 
 .text {
