@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <%- include('partials/header') %>
-    <%- include('partials/nav') %>
-
     <body>
+        <%- include('partials/nav') %>
         <div class="text">
             <p>This gallery is our permanent collection of priceless art.</p>
             <p>Return <a href="/">home</a> to generate a new painting. </p>
@@ -18,7 +17,6 @@
                 new p5((p) => sketch(p, JSON.parse(el.dataset.art), el));
             });
         </script>
+        <%- include('partials/footer') %>
     </body>
-
-    <%- include('partials/footer') %>
 </html>
