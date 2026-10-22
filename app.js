@@ -1,3 +1,6 @@
+// load settings from .env first, so everything below can read them from process.env
+require('dotenv').config();
+
 // Set express as Node.js server
 // install express before using with "npm install express"
 const express = require('express');
@@ -5,7 +8,6 @@ const app = express();
 // const PORT = 3000;
 const PORT = process.env.PORT || 3030;
 
-require('dotenv').config();
 // console.log(process.env);
 
 // require sqlite3 and use the database
