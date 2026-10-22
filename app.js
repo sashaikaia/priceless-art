@@ -240,7 +240,7 @@ function getRandomColor(min, max) {
     if (max < 0) {
         max = 0;
     }
-    if (min > 255) {
+    if (max > 255) {
         max = 255;
     }
     let r = getRandomInt(min, max);
