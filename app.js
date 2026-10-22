@@ -18,6 +18,15 @@ const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 const db = client.db('art');
 
+// loose limits for submitted paintings: wide enough for user-designed art,
+// tight enough that nobody can store a giant canvas or millions of points
+const ART_LIMITS = {
+    minSize: 10,
+    maxSize: 2000,
+    maxShapes: 100,
+    maxCoordsPerShape: 200,
+    styles: ["rounded", "poly"]
+};
 
 // Allow express to read requests in JSON format
 app.use(express.urlencoded({extended: true}));
@@ -35,7 +44,7 @@ app.set('view engine', 'ejs');
 app.post('/submit', (req, res) => {
     console.log('post request from submit button on index page');
 
-    // only store paintings that look like ones generateArtObject() makes
+    // only store paintings with the expected fields, within ART_LIMITS
     let artObject;
     try {
         artObject = cleanArtObject(JSON.parse(req.body.myArtObject));
@@ -170,31 +179,26 @@ function generateArtObject() {
 
 // rebuild a submitted artObject from only the fields we expect, or return null if anything is off
 function cleanArtObject(input) {
-    if (!input || !isIntBetween(input.width, 200, 300) || !isIntBetween(input.height, 200, 300)) {
+    const limits = ART_LIMITS;
+    if (!input || !isIntBetween(input.width, limits.minSize, limits.maxSize) || !isIntBetween(input.height, limits.minSize, limits.maxSize)) {
         return null;
     }
-    if (!isColor(input.background) || !Array.isArray(input.shapes)) {
-        return null;
-    }
-    if (input.shapes.length < 1 || input.shapes.length > 5) {
+    if (!isColor(input.background) || !Array.isArray(input.shapes) || input.shapes.length > limits.maxShapes) {
         return null;
     }
 
     let shapes = [];
     for (let shape of input.shapes) {
-        if (!shape || !["rounded", "poly"].includes(shape.style) || !isColor(shape.color)) {
+        if (!shape || !limits.styles.includes(shape.style) || !isColor(shape.color)) {
             return null;
         }
+        // coords are x, y pairs; points may sit anywhere, even off the canvas
         let coords = shape.coords;
-        if (!Array.isArray(coords) || coords.length < 4 || coords.length > 14 || coords.length % 2 != 0) {
+        if (!Array.isArray(coords) || coords.length < 2 || coords.length > limits.maxCoordsPerShape || coords.length % 2 != 0) {
             return null;
         }
-        // even indexes are x coords, odd indexes are y coords, kept 5px inside the canvas
-        for (let j = 0; j < coords.length; j++) {
-            let max = (j % 2 == 0) ? input.width - 5 : input.height - 5;
-            if (!isIntBetween(coords[j], 5, max)) {
-                return null;
-            }
+        if (!coords.every((c) => isIntBetween(c, -limits.maxSize, 2 * limits.maxSize))) {
+            return null;
         }
         shapes.push({ style: shape.style, color: shape.color, coords: coords });
     }
