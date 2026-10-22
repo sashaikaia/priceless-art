@@ -44,9 +44,6 @@ app.use(express.static(__dirname + '/public'));
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
 
-// declare an object, ArtObject
-// var artObject = {};
-
 app.post('/submit', (req, res) => {
     console.log('post request from submit button on index page');
 
@@ -83,9 +80,8 @@ app.post('/refresh', (req, res) => {
 app.get('/', (req, res) => {
     console.log('get request for index page');
 
-    // generate JSON object containing artwork info, re-assigning this to the artObject variable
-    delete(artObject);
-    var artObject = generateArtObject();
+    // generate a new JSON object containing artwork info for this request
+    const artObject = generateArtObject();
     // console.log(artObject);
     console.log(JSON.stringify(artObject));
 
@@ -124,7 +120,7 @@ app.use(function(req,res){
 
 // generate artObject in JSON format with width, height, background, and an array of shapes
 function generateArtObject() {
-    artObject = {};
+    let artObject = {};
     let x = getRandomInt(200, 300);
     artObject.width = x;
     let y = getRandomInt(200,300);
