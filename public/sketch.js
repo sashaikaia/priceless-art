@@ -1,18 +1,17 @@
-var sketch = function(p) {
-  var newArtObject = myArtObject;
-
+// draw an artObject on its own canvas inside the given container element
+var sketch = function(p, artObject, container) {
   p.setup = function() {
     let newPainting = new painting(
       p,
-      newArtObject.width,
-      newArtObject.height,
-      newArtObject.background,
-      newArtObject.shapes
+      artObject.width,
+      artObject.height,
+      artObject.background,
+      artObject.shapes,
+      container
     );
     newPainting.paint();
   }
 }
-
 // classes
 class shapeObject {
   constructor(s, style, color, coords) {
@@ -59,8 +58,9 @@ class shapeObject {
 }
 
 class painting {
-  constructor(p, x, y, bg, shapes) {
+  constructor(p, x, y, bg, shapes, container) {
     this.p = p;
+    this.container = container;
     this.x = x;
     this.y = y;
     this.bg = bg;
@@ -69,7 +69,7 @@ class painting {
 
   paint() {
     this.p.canvas = this.p.createCanvas(this.x, this.y);
-    this.p.canvas.parent('canvas-container');
+    this.p.canvas.parent(this.container);
     this.p.background(this.bg);
 
     for (let i = 0; i < this.shapes.length; i++) {

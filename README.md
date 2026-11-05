@@ -27,6 +27,11 @@ Clone this GitHub repository. In your Terminal, navigate to the directory <./pri
 npm install
 ```
 
+The app stores the gallery in MongoDB, so it needs a connection string. Create a file named `.env` in the project directory containing:
+```bash
+MONGO_URI=<your MongoDB Atlas connection string>
+```
+
 Run the Node.js server in dev mode with:
 ```bash
 npm run dev

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <h2>404 Page Not Found</h2>
+    <%- include('partials/header') %>
+    <body>
+        <%- include('partials/nav') %>
+        <div class="text">
+            <p>Sorry, that page doesn't exist.</p>
+            <p>Return <a href="/">home</a> to generate a new painting.</p>
+        </div>
+        <%- include('partials/footer') %>
+    </body>
 </html>
